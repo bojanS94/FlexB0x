@@ -1,0 +1,63 @@
+:root {
+  --color-primary: rgb(235, 47, 100);
+  --color-primary-light: rgb(255, 51, 102);
+  --color-primary-dark: rgb(186, 38, 93);
+  --color-grey-light-1: rgb(250, 249, 249);
+  --color-grey-light-2: rgb(244, 242, 242);
+  --color-grey-light-3: rgb(240, 238, 238);
+  --color-grey-light-4: rgb(204, 204, 204);
+  --color-grey-dark-1: rgb(51, 51, 51);
+  --color-grey-dark-2: rgb(119, 119, 119);
+  --color-grey-dark-3: rgb(153, 153, 153);
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: "Open-Sans", sans-serif;
+  font-weight: bold;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.container {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--color-grey-light-2);
+  box-shadow: var(--shadow-dark);
+  min-height: 50vh; }
+
+.header {
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2); }
+
+.content {
+  display: flex; }
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%;
+  min-height: 600px;
+  height: 100%; }
+
+.hotel-view {
+  background-color: orangered;
+  flex: 1; }
