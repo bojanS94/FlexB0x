@@ -62,7 +62,6 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
-  min-height: 60rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -75,18 +74,21 @@ body {
   display: flex;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
-  border-bottom: var(--line); }
+  border-bottom: var(--line);
+  font-size: 1.4rem; }
 
 .description {
-  font-size: 1.4rem;
+  height: 100%;
   flex: 0 0 60%;
   margin-right: 4.5rem;
   box-shadow: var(--shadow-light);
   padding: 3rem; }
 
 .user-reviews {
-  background-color: cadetblue;
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .logo {
   height: 3.25rem;
@@ -279,8 +281,13 @@ body {
   transition: all 0.2s;
   padding: 0.5rem;
   font-weight: bold; }
+  .btn-inline span {
+    margin-left: 3px;
+    transition: margin-left 0.2s; }
   .btn-inline:hover {
     color: var(--color-grey-dark-1); }
+    .btn-inline:hover span {
+      margin-left: 8px; }
   .btn-inline:focus {
     animation: pulsate 1s infinite; }
 
@@ -339,3 +346,83 @@ body {
     border: 0.3rem solid #fff; }
     .recommend__photo:not(:first-of-type) {
       margin-left: -1rem; }
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden; }
+  .review__text {
+    position: relative;
+    z-index: 10; }
+  .review__user {
+    display: flex;
+    align-items: center;
+    margin: 2rem auto 0; }
+  .review__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem; }
+  .review__user-box {
+    margin-right: auto; }
+  .review__user-date {
+    font-size: 1.2rem; }
+  .review__user-rating {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    font-weight: 300; }
+  .review::before {
+    content: "\201C";
+    font-size: 20rem;
+    line-height: 1;
+    font-family: sans-serif;
+    color: var(--color-grey-light-3);
+    top: -2rem;
+    left: 0;
+    position: absolute;
+    z-index: 1; }
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+  background-color: #fff; }
+  .cta__book-now {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem; }
+
+.btn {
+  border: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 10rem;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; }
+  .btn > * {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s; }
+  .btn__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%; }
+  .btn:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark)); }
+  .btn:hover .btn__visible {
+    transform: translateY(100%); }
+  .btn:hover .btn__invisible {
+    top: 0;
+    z-index: 10; }
+  .btn:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
