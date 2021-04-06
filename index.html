@@ -7,14 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-
     <title>trillo &mdash; Your all-in-one booking app</title>
 </head>
 
 <body>
-
     <div class="container">
-
         <header class="header">
             <img src="img/logo.png" alt="trillo logo" class="logo">
             <form action="#" class="search">
@@ -41,11 +38,14 @@
                 <div class="user-nav__user">
                     <img src="img/user.jpg" alt="User img" class="user-nav__user-photo">
                     <p>Bojan S.</p>
+                    <div class="user-nav__info">
+                        <span class="user-nav__info-level">Genius level 10</span>
+                        <span class="user-nav__info-travels">12 travels so far!</span>
+                    </div>
                 </div>
             </nav>
         </header>
         <div class="content">
-
             <nav class="sidebar">
                 <ul class="side-nav">
                     <li class="side-nav__item side-nav__item--active">
@@ -80,12 +80,15 @@
 
                 <div class="gallery">
                     <figure class="gallery__item">
+                        <div class="gallery__text">Clear sky view</div>
                         <img src="img/hotel-1.jpg" alt="Hotel 1 photo" class="gallery__photo">
                     </figure>
                     <figure class="gallery__item">
+                        <div class="gallery__text">Nice and clean swimming pools</div>
                         <img src="img/hotel-2.jpg" alt="Hotel 2 photo" class="gallery__photo">
                     </figure>
                     <figure class="gallery__item">
+                        <div class="gallery__text">Sea view from every corner</div>
                         <img src="img/hotel-3.jpg" alt="Hotel 3 photo" class="gallery__photo">
                     </figure>
                 </div>
@@ -136,13 +139,25 @@
                         </p>
                         <ul class="list">
                             <li class="list__item">Close to the beach</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                             <li class="list__item">Breakfast included</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                             <li class="list__item">Free airport shuttle</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                             <li class="list__item">Free wifi in all rooms</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                             <li class="list__item">AC and heating</li>
                             <li class="list__item">Pets allowed</li>
                             <li class="list__item">We speak all languages</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                             <li class="list__item">Perfect for families</li>
+                            <div class="list__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
+                                neque!</div>
                         </ul>
                         <div class="recommend">
                             <div class="recommend__count">
@@ -203,6 +218,7 @@
         </div>
     </div>
 
+    <script src="js/app.js"></script>
 </body>
 
 </html>
