@@ -19,5 +19,5 @@ let hoverLeave = () => {
     };
     Object.assign(userInfo.style, styles);
 }
-profileBox.addEventListener('mouseenter', hoverEnter, false);
-profileBox.addEventListener('mouseleave', hoverLeave, false);
+profileBox.addEventListener('mouseenter', hoverEnter);
+profileBox.addEventListener('mouseleave', hoverLeave);
