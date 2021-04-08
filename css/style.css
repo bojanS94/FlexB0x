@@ -39,6 +39,9 @@ body {
   background-image: linear-gradient(147deg, #000000 0%, var(--color-primary) 74%);
   background-size: 400% 400%;
   animation: gradient 20s ease infinite; }
+  @media only screen and (max-width: 68.75em) {
+    body {
+      animation: none; } }
 
 @keyframes gradient {
   0% {
@@ -85,7 +88,6 @@ body {
 .sidebar {
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
@@ -319,20 +321,42 @@ body {
   .gallery__photo {
     width: 100%;
     display: block; }
-  .gallery__text {
+  .gallery__title {
     position: absolute;
-    bottom: 0;
-    font-size: 1.5rem;
-    color: var(--color-grey-light-3);
-    background-color: rgba(0, 0, 0, 0.5);
-    max-width: 30rem;
-    width: 100%;
-    padding: 1.5rem;
-    display: block;
-    transition: left 0.2s;
     left: 0;
-    z-index: 0;
-    transition: z-index 0.2s; }
+    bottom: 0;
+    padding: 1rem;
+    text-align: center;
+    width: 100%; }
+    .gallery__title::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 3px;
+      background-color: rgba(0, 0, 0, 0.7);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.1s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s; }
+  .gallery__text {
+    position: relative;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--color-grey-light-1);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    z-index: 10; }
+  .gallery__item:hover .gallery__title::before {
+    transform: scaleY(1);
+    width: 100%;
+    transition: transform 0.1s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s; }
+  .gallery__item:hover .gallery__text {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s 0.4s, opacity 0.2s 0.4s; }
 
 .overview {
   display: flex;
@@ -532,7 +556,7 @@ body {
     font-size: 1.5rem;
     font-weight: 300;
     text-transform: uppercase;
-    margin-bottom: 2.5rem; }
+    margin: 2.5rem auto; }
 
 .btn {
   border: none;
