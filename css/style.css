@@ -1,14 +1,14 @@
 :root {
-  --color-primary: rgb(39, 114, 189);
+  --color-primary: rgba(4, 97, 159);
   --color-primary-light: rgba(46, 89, 132);
   --color-primary-dark: rgba(30, 41, 52);
   --color-grey-light-1: rgb(250, 249, 249);
   --color-grey-light-2: rgb(244, 242, 242);
   --color-grey-light-3: rgb(240, 238, 238);
   --color-grey-light-4: rgb(204, 204, 204);
-  --color-grey-dark-1: rgb(51, 51, 51);
-  --color-grey-dark-2: rgb(119, 119, 119);
-  --color-grey-dark-3: rgb(153, 153, 153);
+  --color-grey-dark-1: rgba(51, 51, 51);
+  --color-grey-dark-2: rgba(119, 119, 119);
+  --color-grey-dark-3: rgba(153, 153, 153);
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
   --line: 1px solid var(--color-grey-light-3); }
@@ -25,15 +25,28 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Open-Sans", sans-serif;
   font-weight: bold;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
   background-repeat: no-repeat;
-  height: 100%; }
+  height: 100%;
+  background-image: linear-gradient(147deg, #000000 0%, var(--color-primary) 74%);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite; }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
 
 .container {
   max-width: 140rem;
@@ -42,6 +55,11 @@ body {
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
   min-height: 50rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
 
 .header {
   height: 7rem;
@@ -52,9 +70,17 @@ body {
   align-items: center;
   flex-direction: row;
   justify-content: space-between; }
+  @media only screen and (max-width: 31.25em) {
+    .header {
+      flex-wrap: wrap;
+      align-content: space-around;
+      height: 11rem; } }
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -73,6 +99,12 @@ body {
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
   font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .detail {
+      padding: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   height: 100%;
@@ -80,6 +112,14 @@ body {
   margin-right: 4.5rem;
   box-shadow: var(--shadow-light);
   padding: 3rem; }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
   flex: 1;
@@ -95,7 +135,13 @@ body {
   flex: 0 0 40%;
   display: flex;
   align-items: center;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  border-radius: 100px; }
+  @media only screen and (max-width: 31.25em) {
+    .search {
+      order: 1;
+      flex: 0 0 100%;
+      background-color: var(--color-grey-light-2); } }
   .search__input {
     border: none;
     outline: none;
@@ -181,22 +227,37 @@ body {
     color: #fff;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 80%;
     z-index: -1;
     width: 100%;
     transition: top 0.2s; }
+    @media only screen and (max-width: 56.25em) {
+      .user-nav__info {
+        background: black; } }
 
 .side-nav {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
   min-height: 100vh; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      min-height: auto; } }
   .side-nav__item {
     position: relative;
     z-index: 10;
     backface-visibility: hidden; }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__item {
+        flex: 1; } }
     .side-nav__item:not(:last-child) {
       margin-bottom: 0.5rem; }
+      @media only screen and (max-width: 56.25em) {
+        .side-nav__item:not(:last-child) {
+          margin: 0; } }
   .side-nav__item::before {
     content: "";
     z-index: -1;
@@ -207,7 +268,7 @@ body {
     width: 0.3rem;
     background-color: var(--color-primary);
     transform: scaleY(0);
-    transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s; }
+    transition: transform 0.1s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s; }
   .side-nav__item:hover:before, .side-nav__item--active:before {
     transform: scaleY(1);
     width: 100%; }
@@ -220,17 +281,34 @@ body {
     display: flex;
     align-items: center;
     padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        justify-content: center;
+        padding: 2rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem; } }
   .side-nav__icon {
     width: 2rem;
     height: 2rem;
     fill: currentColor;
     margin-right: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__icon {
+        margin-right: 0;
+        margin-bottom: 0.7rem;
+        width: 1.5rem;
+        height: 1.5rem; } }
 
 .legal {
   font-size: 1.2rem;
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4); }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex;
@@ -266,6 +344,10 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        padding: 1.25rem 2rem; } }
   .overview__stars {
     margin-right: auto;
     display: flex; }
@@ -291,12 +373,21 @@ body {
     justify-content: center;
     flex-direction: column;
     text-align: center; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating {
+        padding: 0 1.5rem; } }
   .overview__rating-average {
     font-size: 2.5rem;
     font-weight: 300; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating-average {
+        font-size: 1.8rem; } }
   .overview__rating-count {
     font-size: 1rem;
     text-transform: uppercase; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating-count {
+        font-size: 0.5rem; } }
 
 .btn-inline {
   border: none;
@@ -354,9 +445,16 @@ body {
       height: 1.5rem;
       width: 1.5rem;
       margin-right: 0.7rem;
-      background-color: var(--color-primary);
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover; }
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover; }
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        .list__item::before {
+          background-color: var(--color-primary);
+          -webkit-mask-image: url(../img/chevron-thin-right.svg);
+          -webkit-mask-size: cover;
+          mask-image: url(../img/chevron-thin-right.svg);
+          mask-size: cover;
+          background-image: none; } }
   .list__text {
     max-width: 30rem;
     width: 100%;
@@ -388,6 +486,10 @@ body {
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      padding: 2rem;
+      margin-bottom: 3rem; } }
   .review__text {
     position: relative;
     z-index: 10; }
@@ -423,6 +525,9 @@ body {
   padding: 3.5rem 0;
   text-align: center;
   background-color: #fff; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem 0; } }
   .cta__book-now {
     font-size: 1.5rem;
     font-weight: 300;

@@ -1,6 +1,6 @@
 :root {
     //Primary colors
-    --color-primary: rgb(39, 114, 189);
+    --color-primary: rgba(4, 97, 159);
     --color-primary-light: rgba(46, 89, 132);
     --color-primary-dark: rgba(30, 41, 52);
     //Light colors
@@ -9,9 +9,9 @@
     --color-grey-light-3: rgb(240, 238, 238);
     --color-grey-light-4: rgb(204, 204, 204);
     //Dark colors
-    --color-grey-dark-1: rgb(51, 51, 51);
-    --color-grey-dark-2: rgb(119, 119, 119);
-    --color-grey-dark-3: rgb(153, 153, 153);
+    --color-grey-dark-1: rgba(51, 51, 51);
+    --color-grey-dark-2: rgba(119, 119, 119);
+    --color-grey-dark-3: rgba(153, 153, 153);
 
     //Shadows variables
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
@@ -20,6 +20,12 @@
     //Border bottom variable
     --line: 1px solid var(--color-grey-light-3);
 }
+
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
 
 * {
     margin: 0;
@@ -35,6 +41,10 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%;
+    }
 }
 
 body {
@@ -42,7 +52,21 @@ body {
     font-weight: bold;
     line-height: 1.6;
     color: var(--color-grey-dark-2);
-    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
     background-repeat: no-repeat;
     height: 100%;
+    background-image: linear-gradient(147deg, #000000 0%, var(--color-primary) 74%);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

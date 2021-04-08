@@ -10,6 +10,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    border-radius: 100px;
+
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
 
     &__input {
         border: none;
@@ -127,10 +134,14 @@
         color: #fff;
         position: absolute;
         right: 0;
-        top: 0;
+        top: 80%;
         z-index: -1;
         width: 100%;
         transition: top 0.2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            background: rgba(0, 0, 0, 1);
+        }
     }
 }
 
@@ -140,16 +151,30 @@
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
-
     min-height: 100vh;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        min-height: auto;
+    }
 
     &__item {
         position: relative;
         z-index: 10;
         backface-visibility: hidden;
 
+        @media only screen and (max-width: $bp-small) {
+            flex: 1;
+        }
+
         &:not(:last-child) {
             margin-bottom: 0.5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0;
+            }
         }
     }
     &__item::before {
@@ -162,7 +187,7 @@
         width: 0.3rem;
         background-color: var(--color-primary);
         transform: scaleY(0);
-        transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s;
+        transition: transform 0.1s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.15s;
     }
 
     &__item:hover:before,
@@ -183,6 +208,16 @@
         display: flex;
         align-items: center;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem 0.5rem;
+        }
     }
 
     &__icon {
@@ -190,6 +225,13 @@
         height: 2rem;
         fill: currentColor;
         margin-right: 2rem;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: 0.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -200,6 +242,10 @@
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 //Hotel view gallery
@@ -246,6 +292,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
     &__stars {
         margin-right: auto;
@@ -277,14 +328,26 @@
         justify-content: center;
         flex-direction: column;
         text-align: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
     &__rating-average {
         font-size: 2.5rem;
         font-weight: 300;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
     &__rating-count {
         font-size: 1rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 0.5rem;
+        }
     }
 }
 //Inilne btn styles
@@ -369,15 +432,19 @@
             width: 1.5rem;
             margin-right: 0.7rem;
 
-            //Older browsers
-            // background-image: url(../img/chevron-thin-right.svg);
-            // background-repeat: no-repeat;
-            // background-position: center center;
+            // Older browsers
+            background-image: url(../img/chevron-thin-right.svg);
+            background-size: cover;
 
-            //New browsers - mask
-            background-color: var(--color-primary);
-            -webkit-mask-image: url(../img/chevron-thin-right.svg);
-            -webkit-mask-size: cover;
+            //Newer browsers - masks
+            @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+                background-color: var(--color-primary);
+                -webkit-mask-image: url(../img/chevron-thin-right.svg);
+                -webkit-mask-size: cover;
+                mask-image: url(../img/chevron-thin-right.svg);
+                mask-size: cover;
+                background-image: none;
+            }
         }
     }
 
@@ -424,6 +491,12 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
+
     &__text {
         position: relative;
         z-index: 10;
@@ -478,6 +551,10 @@
     padding: 3.5rem 0;
     text-align: center;
     background-color: #fff;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 1.5rem;

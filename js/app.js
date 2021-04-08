@@ -7,14 +7,14 @@ let galleryTxt = document.querySelectorAll(".gallery__text");
 let hoverEnter = () => {
     let styles = {
         top: "100%",
-        zIndex: 10
+        zIndex: 99
     };
     Object.assign(userInfo.style, styles);
 }
 
 let hoverLeave = () => {
     let styles = {
-        top: "0%",
+        top: "80%",
         zIndex: -1
     };
     Object.assign(userInfo.style, styles);
